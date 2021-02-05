@@ -19,6 +19,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
+Plug 'integralist/vim-mypy'
 
 " Initialize plugin system
 call plug#end()
@@ -35,7 +36,7 @@ highlight Search guibg=#af005f ctermbg=125
 nnoremap <C-h> :noh<return>
 set number
 
-set cc=100
+set cc=120
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
@@ -64,7 +65,7 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%] [%...code...%]'
 """" Enable completion where available.
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 """ Customize linters that are turned on
 let g:ale_linters = {
 	\   'python': ['flake8'],
@@ -78,6 +79,7 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsListSnippets='<c-tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/plugged/vim-snippets/UltiSnips']
 
 nmap <F8> :TagbarToggle<CR>
 
@@ -88,3 +90,7 @@ let g:user_emmet_leader_key='<C-Y>'
 
 " use tidy to clean up html
 :vmap ,x :!tidy -q -i --wrap 0 --show-errors 0 --doctype omit --show-body-only yes --fix-uri no<CR>
+
+" ropevim
+let ropevim_vim_completion=1
+let ropevim_extended_complete=1
