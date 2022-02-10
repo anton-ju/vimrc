@@ -34,9 +34,23 @@ set hlsearch
 highlight Search guibg=#af005f ctermbg=125
 """" clear highlight with <esc> after a search
 nnoremap <C-h> :noh<return>
-set number
+inoremap jk <esc>
 
 set cc=120
+
+set mouse=a  " enable mouse
+set encoding=utf-8
+set number
+set noswapfile
+set scrolloff=7
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set fileformat=unix
+filetype indent on      " load filetype-specific indent files
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
@@ -52,9 +66,10 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Switching between buffers
 " Set commands to switching between buffers
-:nnoremap <Tab> :bnext!<CR>
-:nnoremap <S-Tab> :bprevious!<CR>
-:nnoremap <C-X> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <Tab> :bnext!<CR>
+nnoremap <S-Tab> :bprevious!<CR>
+nnoremap <C-X> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap ,<space> :nohlsearch<CR>
 
 " File searchs
 map <C-p> :Files<CR>
@@ -71,7 +86,7 @@ let g:ale_linters = {
 	\   'python': ['flake8'],
 	\}
 let g:ale_set_highlights = 0
-
+let g:ale_python_flake8_options = '--max-line-length=99'
 " Fix keys
 set backspace=2
 
